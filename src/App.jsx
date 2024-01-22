@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { block } from 'million'
 import './App.css'
 import Nav from './components/NavBar/Navbar';
-import Home from './components/NavBar/Home/Home';
+import Home from './components/Home/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from './components/About/About';
+import Articles from './components/Articles/Articles';
 
 const  App=block(() => {
 
@@ -14,6 +16,8 @@ const  App=block(() => {
    <Nav />
    <Routes>
     <Route path='/' element={<Home />} />
+    <Route path='/about' element={<About />} />
+    <Route path='/articles' element={<Articles />} />
    </Routes>
 
     </div>
