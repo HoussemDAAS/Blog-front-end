@@ -2,9 +2,11 @@ import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import contents from'../../Content/data'
 import { Link } from 'react-router-dom'
-
-
+import Comments from '../commentsArticle/comments'
+import AddComment from '../AddComment/AddComment'
 const Article = () => {
+
+  
     const {name} = useParams();
     const blog =contents.find(blog => blog.name === name);
 const [articleInfo, setArticleInfo] = useState({comments:[]});
@@ -35,6 +37,8 @@ useEffect(() => {
   <Link to="/articles">
     <h1 className='sm:text-2xl text-xl font-sans items-center my-6 text-center text-gray-600 font-bold-bold'>other articles</h1>
   </Link>
+  <Comments  comments={articleInfo.comments} />
+  <AddComment articleName={name} SetArticleInfo={setArticleInfo} />
 </div>
   )};
 
